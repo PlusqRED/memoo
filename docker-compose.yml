@@ -1,0 +1,22 @@
+version: '3.1'
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_DATABASE=memoo
+      - MONGO_INITDB_ROOT_USERNAME=memoo
+      - MONGO_INITDB_ROOT_PASSWORD=memoo
+    restart: on-failure
+  memoo:
+    build:
+      context: .
+    container_name: memoo
+    ports:
+      - 8989:8989
+    environment:
+      - SERVER_PORT=8080
+      - SPRING_APPLICATION_NAME=memoo
+    restart: on-failure
