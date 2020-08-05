@@ -14,9 +14,6 @@ services:
     build:
       context: .
     container_name: memoo
-    ports:
-      - 8989:8989
     environment:
-      - SERVER_PORT=8080
       - SPRING_APPLICATION_NAME=memoo
     restart: on-failure
